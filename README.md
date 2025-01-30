@@ -28,30 +28,35 @@ Projenin çalışabilmesi için aşağıdaki Python paketlerinin yüklü olması
 
 Projenin bağımlılıklarını yüklemek için aşağıdaki komutu kullanabilirsiniz:
 
+pip install -r requirements.txt  
 
-pip install -r requirements.txt
-Wordlist
+- Wordlist  
+
 Aktif tarama için bir wordlist gereklidir. wordlist_path parametresi ile özel bir wordlist belirleyebilirsiniz. Örnek olarak, "wordlists/subdomains.txt" yolunda bir dosya kullanılır. Bu wordlist, potansiyel subdomain'leri içermelidir.
 
-Başlatma
-Tarama başlatmak için aşağıdaki komutları kullanabilirsiniz:
+- Başlatma  
 
-bash
-Kopyala
-Düzenle
-python main.py hedef-domain.com -w wordlist.txt -o json -t 3
-Parametreler
-domain: Hedef domain (zorunlu)
--w / --wordlist: Kendi belirlediğiniz özel wordlist dosyası (isteğe bağlı)
--o / --output: Çıktı formatı (json veya csv, varsayılan: json)
--t / --threads: Tarama hızı (1-5 arası, varsayılan: 3)
-Çıktı
+Tarama başlatmak için aşağıdaki komutları kullanabilirsiniz:  
+
+
+python main.py hedef-domain.com -w wordlist.txt -o json -t 3  
+
+- Parametreler
+
+domain: Hedef domain (zorunlu)  
+
+-w / --wordlist: Kendi belirlediğiniz özel wordlist dosyası (isteğe bağlı)  
+
+-o / --output: Çıktı formatı (json veya csv, varsayılan: json)  
+
+-t / --threads: Tarama hızı (1-5 arası, varsayılan: 3)  
+
+- Çıktı
+
 Tarama sonuçları JSON veya CSV formatında kaydedilebilir. Çıktı, bulunan subdomain'ler, IP adresleri, HTTP yanıt durumu, sunucu bilgileri ve SSL sertifikası bilgileri içerir.
 
-JSON Örneği:
-json
-Kopyala
-Düzenle
+- JSON Örneği:
+
 [
   {
     "subdomain": "www.hedef-domain.com",
@@ -63,50 +68,56 @@ Düzenle
     "ssl_issuer": "Let's Encrypt",
     "ssl_expiry": "2025-06-15"
   }
-]
-CSV Örneği:
-vbnet
-Kopyala
-Düzenle
-subdomain,ip_addresses,http_status,server,title,ssl_valid,ssl_issuer,ssl_expiry
-www.hedef-domain.com,93.184.216.34,200,Apache,Hedef Domain,true,Let's Encrypt,2025-06-15
-Nasıl Çalışır?
-Pasif Tarama: crt.sh gibi açık kaynaklardan subdomain'leri keşfeder.
-Aktif Tarama: Verilen wordlist'e dayalı olarak subdomain'leri doğrular.
-DNS Sorguları: Çeşitli DNS sunucularını kullanarak domain bilgilerini toplar.
-Doğrulama: Keşfedilen subdomain'lerin aktif olup olmadığını doğrular, IP adreslerini, HTTP durumu, sunucu bilgilerini ve SSL sertifikası bilgilerini toplar.
-Kullanıcı Örnekleri
-Basit Kullanım
-Subdomain taraması başlatmak için:
+]  
 
-bash
-Kopyala
-Düzenle
-python main.py hedef-domain.com
-Kendi Wordlist'inizi Kullanma
-bash
-Kopyala
-Düzenle
-python main.py hedef-domain.com -w /path/to/your/wordlist.txt
-Sonuçları CSV Olarak Kaydetme
-bash
-Kopyala
-Düzenle
-python main.py hedef-domain.com -o csv
-Katkıda Bulunma
-Eğer projeye katkıda bulunmak isterseniz, lütfen aşağıdaki adımları izleyin:
+- CSV Örneği:
+  
 
-Bu repoyu çatallayın (fork).
-Yeni bir dal oluşturun (branch).
-Yaptığınız değişiklikleri commit'leyin.
-Pull request gönderin.
-Lisans
+subdomain,ip_addresses,http_status,server,title,ssl_valid,ssl_issuer,ssl_expiry  
+
+www.hedef-domain.com,93.184.216.34,200,Apache,Hedef Domain,true,Let's Encrypt,2025-06-15  
+
+- Nasıl Çalışır?
+  
+Pasif Tarama: crt.sh gibi açık kaynaklardan subdomain'leri keşfeder.  
+
+Aktif Tarama: Verilen wordlist'e dayalı olarak subdomain'leri doğrular.  
+
+DNS Sorguları: Çeşitli DNS sunucularını kullanarak domain bilgilerini toplar.  
+
+Doğrulama: Keşfedilen subdomain'lerin aktif olup olmadığını doğrular, IP adreslerini, HTTP durumu, sunucu bilgilerini ve SSL sertifikası bilgilerini toplar.  
+
+### Kullanıcı Örnekleri
+#### Basit Kullanım
+Subdomain taraması başlatmak için:  
+
+python main.py hedef-domain.com  
+
+#### Kendi Wordlist'inizi Kullanma  
+
+python main.py hedef-domain.com -w /path/to/your/wordlist.txt  
+
+#### Sonuçları CSV Olarak Kaydetme  
+
+python main.py hedef-domain.com -o csv  
+
+### Katkıda Bulunma
+Eğer projeye katkıda bulunmak isterseniz, lütfen aşağıdaki adımları izleyin:  
+
+
+Bu repoyu çatallayın (fork).  
+
+Yeni bir dal oluşturun (branch).  
+
+Yaptığınız değişiklikleri commit'leyin.  
+
+Pull request gönderin.  
+
+### Lisans  
+
 Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için LICENSE dosyasına bakabilirsiniz.
 
-Not: Bu araç yalnızca etik ve yasal amaçlarla kullanılmalıdır. Hedeflerinizi taramadan önce izin almanız gerekmektedir.
+### Uyarı  
+Bu araç yalnızca etik ve yasal amaçlarla kullanılmalıdır. Hedeflerinizi taramadan önce izin almanız gerekmektedir.
 
-css
-Kopyala
-Düzenle
 
-Bu içeriği, aracın kullanımını, özelliklerini, nasıl kurulacağını ve çalıştırılacağını açıkça
