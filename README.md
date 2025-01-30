@@ -120,4 +120,9 @@ Bu proje MIT Lisansı ile lisanslanmıştır. Detaylar için LICENSE dosyasına 
 ### Uyarı  
 Bu araç yalnızca etik ve yasal amaçlarla kullanılmalıdır. Hedeflerinizi taramadan önce izin almanız gerekmektedir.
 
+### Proje Demo Video
+
+[Demo Videosunu İzle](https://github.com/h4ck3dbyt0g1/subdomain_scan/releases/tag/release-02)
+
+
 
